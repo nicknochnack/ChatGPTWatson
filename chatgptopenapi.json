@@ -1,0 +1,262 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OpenAI",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "https://api.openai.com"
+    }
+  ],
+  "paths": {
+    "/v1/chat/completions": {
+      "post": {
+        "summary": "https://api.openai.com/v1/chat/completions",
+        "description": "https://api.openai.com/v1/chat/completions",
+        "operationId": "httpsApiOpenaiComV1ChatCompletions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "messages": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "content": {
+                          "type": "string",
+                          "example": "What is the OpenAI mission?"
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "user"
+                        }
+                      }
+                    },
+                    "example": [
+                      {
+                        "content": "What is the OpenAI mission?",
+                        "role": "user"
+                      }
+                    ]
+                  },
+                  "model": {
+                    "type": "string",
+                    "example": "gpt-3.5-turbo"
+                  }
+                }
+              },
+              "example": {
+                "messages": [
+                  {
+                    "content": "What is the OpenAI mission?",
+                    "role": "user"
+                  }
+                ],
+                "model": "gpt-3.5-turbo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "https://api.openai.com/v1/chat/completions",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, must-revalidate"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "724"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 09 Mar 2023 03:42:44 GMT"
+                }
+              },
+              "Openai-Model": {
+                "schema": {
+                  "type": "string",
+                  "example": "gpt-3.5-turbo-0301"
+                }
+              },
+              "Openai-Organization": {
+                "schema": {
+                  "type": "string",
+                  "example": "user-rs4vfzwj0vemyy4tvc1gh4kp"
+                }
+              },
+              "Openai-Processing-Ms": {
+                "schema": {
+                  "type": "string",
+                  "example": "3246"
+                }
+              },
+              "Openai-Version": {
+                "schema": {
+                  "type": "string",
+                  "example": "2020-10-01"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=15724800; includeSubDomains"
+                }
+              },
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string",
+                  "example": "ff27f8e838bc18606145e6476aa3f32e"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "choices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "finish_reason": {
+                            "type": "string",
+                            "example": "stop"
+                          },
+                          "index": {
+                            "type": "number",
+                            "example": 0
+                          },
+                          "message": {
+                            "type": "object",
+                            "properties": {
+                              "content": {
+                                "type": "string",
+                                "example": "\n\nThe mission of OpenAI is to develop and promote safe and beneficial artificial intelligence that can benefit humanity as a whole. The company aims to create advanced AI technology while also ensuring that the technology is used responsibly and with the needs of society in mind. OpenAI also seeks to promote public awareness and understanding of artificial intelligence, and to inspire thoughtful discussion and research in the field."
+                              },
+                              "role": {
+                                "type": "string",
+                                "example": "assistant"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "example": [
+                        {
+                          "finish_reason": "stop",
+                          "index": 0,
+                          "message": {
+                            "content": "\n\nThe mission of OpenAI is to develop and promote safe and beneficial artificial intelligence that can benefit humanity as a whole. The company aims to create advanced AI technology while also ensuring that the technology is used responsibly and with the needs of society in mind. OpenAI also seeks to promote public awareness and understanding of artificial intelligence, and to inspire thoughtful discussion and research in the field.",
+                            "role": "assistant"
+                          }
+                        }
+                      ]
+                    },
+                    "created": {
+                      "type": "number",
+                      "example": 1678333361
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "chatcmpl-6s1SriED2BxnbVylzaoCkJdbEtaCR"
+                    },
+                    "model": {
+                      "type": "string",
+                      "example": "gpt-3.5-turbo-0301"
+                    },
+                    "object": {
+                      "type": "string",
+                      "example": "chat.completion"
+                    },
+                    "usage": {
+                      "type": "object",
+                      "properties": {
+                        "completion_tokens": {
+                          "type": "number",
+                          "example": 76
+                        },
+                        "prompt_tokens": {
+                          "type": "number",
+                          "example": 14
+                        },
+                        "total_tokens": {
+                          "type": "number",
+                          "example": 90
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "https://api.openai.com/v1/chat/completions": {
+                    "value": {
+                      "choices": [
+                        {
+                          "finish_reason": "stop",
+                          "index": 0,
+                          "message": {
+                            "content": "\n\nThe mission of OpenAI is to develop and promote safe and beneficial artificial intelligence that can benefit humanity as a whole. The company aims to create advanced AI technology while also ensuring that the technology is used responsibly and with the needs of society in mind. OpenAI also seeks to promote public awareness and understanding of artificial intelligence, and to inspire thoughtful discussion and research in the field.",
+                            "role": "assistant"
+                          }
+                        }
+                      ],
+                      "created": 1678333361,
+                      "id": "chatcmpl-6s1SriED2BxnbVylzaoCkJdbEtaCR",
+                      "model": "gpt-3.5-turbo-0301",
+                      "object": "chat.completion",
+                      "usage": {
+                        "completion_tokens": 76,
+                        "prompt_tokens": 14,
+                        "total_tokens": 90
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
